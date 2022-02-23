@@ -1,12 +1,12 @@
-export class Libro {
+export class Venta {
 
-    id: number;
+    //id: BigInteger;
     titulo: string;
     unidades: string;
     precio: string;
 
-    constructor(id: number, titulo: string, unidades: string, precio: string) {
-        this.id = id;
+    constructor(titulo: string, unidades: string, precio: string) {
+        //this.id = id;
         this.titulo = titulo;
         this.unidades = unidades;
         this.precio = precio;

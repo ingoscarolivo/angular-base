@@ -28,7 +28,7 @@
     <!-- FORM -->
     <div class="col-md-8 offset-md-2">
       <div class="card">
-        <form class="card-body" [formGroup]="libroForm" (ngSubmit)="cerar()">
+        <form class="card-body" [formGroup]="libroForm" (ngSubmit)="crear()">
           <h3 class="card-title">Adicionar un libro</h3>
           <label for="titulo">Titulo</label>
           <input type="text" name="titulo" #newtitle class="form-control"  formControlName="titulo" autofocus>

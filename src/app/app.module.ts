@@ -6,8 +6,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from '@home/home.component';
 import { ProductoModule } from '@producto/producto.module';
 import { LibroModule } from '@libro/libro.module';
+import { VentaModule } from '@venta/venta.module';
 import { CoreModule } from '@core/core.module';
 import { CookieService } from 'ngx-cookie-service';
+import { TrmComponent } from './feature/trm/component/trm/trm.component';
+import { TrmService } from './feature/trm/service/trm.service';
+import { DatePipe } from '@angular/common';
 
 
 
@@ -15,16 +19,18 @@ import { CookieService } from 'ngx-cookie-service';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    TrmComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ProductoModule,
     LibroModule,
+    VentaModule,
     CoreModule
   ],
-  providers: [CookieService],
+  providers: [TrmService, CookieService, DatePipe],
     bootstrap: [AppComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

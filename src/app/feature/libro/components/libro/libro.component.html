@@ -1,8 +1,16 @@
-<nav>
-  <a id="linkLibro" routerLink="./" routerLinkActive="active"
-    [routerLinkActiveOptions]="{ exact: true }">Libro</a><br>
-  <a id="linkCrearLibro" routerLink="./crear" routerLinkActive="active">Crear libro</a><br>
-  <a id="linkBorrarlibro" routerLink="./borrar" routerLinkActive="active">Borrar libro</a><br>
-  <a id="linkListarLibro" routerLink="./listar" routerLinkActive="active">listar libro</a><br>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a id="linkCrearLibro"  class="nav-link" routerLink="./crear">Crear Libro</a>
+      </li>
+      <li class="nav-item">
+        <a id="linkBorrarlibro" class="nav-link" routerLink="./borrar">Borrar Libro</a>
+      </li>
+      <li class="nav-item">
+        <a id="linkListarLibro" class="nav-link" routerLink="./listar">Listar Libros</a>
+      </li>
+    </ul>
+  </div>
 </nav>
 <router-outlet></router-outlet>

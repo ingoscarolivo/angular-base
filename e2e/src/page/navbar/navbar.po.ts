@@ -4,6 +4,7 @@ export class NavbarPage {
     linkHome = element(by.xpath('/html/body/app-root/app-navbar/nav/a[1]'));
     linkProducto = element(by.xpath('/html/body/app-root/app-navbar/nav/a[2]'));
     linkLibro = element(by.xpath('/html/body/app-root/app-navbar/nav/a[3]'));
+    linkVenta = element(by.xpath('/html/body/app-root/app-navbar/nav/a[3]'));
 
     async clickBotonProductos() {
         await this.linkProducto.click();
@@ -11,5 +12,9 @@ export class NavbarPage {
 
     async clickBotonLibros() {
         await this.linkLibro.click();
+    }
+
+    async clickBotonVentas() {
+        await this.linkVenta.click();
     }
 }
