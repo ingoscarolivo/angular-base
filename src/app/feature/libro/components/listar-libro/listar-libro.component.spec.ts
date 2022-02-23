@@ -13,7 +13,7 @@ describe('ListarLibroComponent', () => {
   let component: ListarLibroComponent;
   let fixture: ComponentFixture<ListarLibroComponent>;
   let libroService: LibroService;
-  const listaLibros: Libro[] = [new Libro('1', 'Libro 1'), new Libro('2', 'Libro 2')];
+  const listaLibros: Libro[] = [new Libro('Libro 1', '30', '50000'), new Libro('Libro 2', '60', '10000')];
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({

@@ -14,12 +14,15 @@ export class LibroService {
   }
 
   public guardar(libro: Libro) {
-    return this.http.doPost<Libro, boolean>(`${environment.endpoint}/libros`, libro,
-                                                this.http.optsName('crear/actualizar libros'));
+    this.http.doPost<Libro, boolean>(`${environment.endpoint}/libros`, libro,
+                                                this.http.optsName('crear/actualizar libros')).subscribe(data =>{
+                                                  console.log("data ok"+data)
+                                                }); ;
+    return "ok";
   }
 
   public eliminar(libro: Libro) {
-    return this.http.doDelete<boolean>(`${environment.endpoint}/libros/${libro.id}`,
+    return this.http.doDelete<boolean>(`${environment.endpoint}/libros/${libro.titulo}`,
                                                  this.http.optsName('eliminar libro'));
   }
 }

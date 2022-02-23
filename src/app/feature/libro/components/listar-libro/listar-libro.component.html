@@ -1,8 +1,19 @@
-<p>listar-libro works!</p>
+<br>
 <div id="libros">
-  <ul class="libros">
-    <li *ngFor="let item of listarLibros | async">
-      <span>{{item.id}}</span> {{item.titulo}}  {{item.unidades}}  {{item.precio}} 
-    </li>
-  </ul>
+  <table class="table">
+    <thead> <tr>
+      <th scope="col">IdLibro</th>
+      <th scope="col">Titulo</th>
+      <th scope="col">Unidades</th>
+      <th scope="col">Precio</th>
+    </tr></thead>
+    <tbody>
+      <tr *ngFor="let item of listarLibros | async">
+        <th scope="row">{{item.id}}</th> 
+        <td>{{item.titulo}}</td>
+        <td>{{item.unidades}}</td>
+        <td>{{item.precio}} </td>
+      </tr>
+     </tbody>
+  </table>
 </div>

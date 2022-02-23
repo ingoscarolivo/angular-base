@@ -19,15 +19,17 @@ export class CrearLibroComponent implements OnInit {
   }
 
   cerar() {
+    console.log("ingreso al guardar");
     this.libroServices.guardar(this.libroForm.value);
   }
 
   private construirFormularioLibro() {
     this.libroForm = new FormGroup({
-      id: new FormControl('', [Validators.required]),
-      descripcion: new FormControl('', [Validators.required, Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO),
-                                                             Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO)])
-    });
+      titulo: new FormControl('', [Validators.required, Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO),
+                                                             Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO)]),
+      unidades: new FormControl('', [Validators.required]),
+      precio: new FormControl('', [Validators.required])
+                                                            });
   }
 
 }

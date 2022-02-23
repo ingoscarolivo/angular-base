@@ -1,4 +1,4 @@
-<h1>Registrar Libro</h1>
+<!--<h1>Registrar Libro</h1>
 <h3>Ejemplo validacion de formularios reactivos con directiva</h3>
 <form [formGroup]="libroForm" (ngSubmit)="cerar()">
   <div class="row">
@@ -19,4 +19,31 @@
         class="form-control" formControlName="titulo">
     </div>
   </div>
-</form>
+</form>-->
+
+
+<!-- NAVIGATION -->
+<div class="container p-4">
+  <div class="row">
+    <!-- FORM -->
+    <div class="col-md-8 offset-md-2">
+      <div class="card">
+        <form class="card-body" [formGroup]="libroForm" (ngSubmit)="cerar()">
+          <h3 class="card-title">Adicionar un libro</h3>
+          <label for="titulo">Titulo</label>
+          <input type="text" name="titulo" #newtitle class="form-control"  formControlName="titulo" autofocus>
+
+          <label for="unidades">Unidades</label>
+          <input type="text" name="unidades" #newlink class="form-control"  formControlName="unidades">
+
+          <label for="precio">Precio</label>
+          <input type="text" name="precio" #newlink class="form-control"  formControlName="precio">
+
+          <button  class="btn btn-primary btn-block mt-4">
+            Guardar Libro
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
