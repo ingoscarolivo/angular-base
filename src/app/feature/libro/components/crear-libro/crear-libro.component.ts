@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LibroService } from '../../shared/service/libro.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-//import Swal from 'sweetalert2';
+import Swal from 'sweetalert2';
 
 const LONGITUD_MINIMA_PERMITIDA_TEXTO = 3;
 const LONGITUD_MAXIMA_PERMITIDA_TEXTO = 20;
@@ -13,10 +13,10 @@ const LONGITUD_MAXIMA_PERMITIDA_TEXTO = 20;
 })
 export class CrearLibroComponent implements OnInit {
 
- /* notificacion = Swal.mixin({
+  notificacion = Swal.mixin({
     toast: true,
     position: 'center'
-  });*/
+  });
 
   libroForm: FormGroup;
   constructor(protected libroServices: LibroService) { }
@@ -27,13 +27,13 @@ export class CrearLibroComponent implements OnInit {
 
   crear() {
     console.log("ingreso al guardar");
-    this.libroServices.guardar(this.libroForm.value)/*.subscribe(
+    this.libroServices.guardar(this.libroForm.value).subscribe(
       data => {if (data){
         this.success();
         this.libroForm.reset();
-      }}//,
-     // error => this.mostrarError(error.error.mensaje)
-    );*/
+      }},
+      error => this.mostrarError(error.error.mensaje)
+    );
   }
 
   private construirFormularioLibro() {
@@ -45,7 +45,7 @@ export class CrearLibroComponent implements OnInit {
                                                             });
   }
 
- /* success(){
+  success(){
     this.notificacion.fire({
       title: 'Éxito',
       text: 'Se ha creado el libro',
@@ -59,5 +59,5 @@ export class CrearLibroComponent implements OnInit {
         text: mensaje,
         icon: 'error'
       });
-    }*/
+    }
 }

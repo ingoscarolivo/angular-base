@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { VentaService } from '../../shared/service/venta.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
 
-const LONGITUD_MINIMA_PERMITIDA_TEXTO = 3;
-const LONGITUD_MAXIMA_PERMITIDA_TEXTO = 20;
 
 @Component({
   selector: 'app-crear-venta',
@@ -14,22 +13,48 @@ export class CrearVentaComponent implements OnInit {
   ventaForm: FormGroup;
   constructor(protected ventaServices: VentaService) { }
 
+  notificacion = Swal.mixin({
+    toast: true,
+    position: 'center'
+  });
+
   ngOnInit() {
     this.construirFormularioVenta();
   }
 
-  cerar() {
+  crear() {
     console.log("ingreso al guardar");
-    this.ventaServices.guardar(this.ventaForm.value);
+    this.ventaServices.guardar(this.ventaForm.value).subscribe(
+      data => {if (data){
+        this.success();
+        this.ventaForm.reset();
+      }},
+      error => this.mostrarError(error.error.mensaje)
+    );
   }
 
   private construirFormularioVenta() {
     this.ventaForm = new FormGroup({
-      titulo: new FormControl('', [Validators.required, Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO),
-                                                             Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO)]),
-      unidades: new FormControl('', [Validators.required]),
-      precio: new FormControl('', [Validators.required])
+      idLibro: new FormControl('', [Validators.required]),
+      idUsuario: new FormControl('', [Validators.required]),
+      unidadVenta: new FormControl('', [Validators.required])
                                                             });
   }
+
+  success(){
+    this.notificacion.fire({
+      title: 'Éxito',
+      text: 'Se ha creado venta del libro',
+      icon: 'success'
+    });
+  }
+
+    mostrarError(mensaje){
+      this.notificacion.fire({
+        title: 'Error',
+        text: mensaje,
+        icon: 'error'
+      });
+    }
 
 }

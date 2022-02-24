@@ -7,6 +7,7 @@ import { HomeComponent } from '@home/home.component';
 import { ProductoModule } from '@producto/producto.module';
 import { LibroModule } from '@libro/libro.module';
 import { VentaModule } from '@venta/venta.module';
+import { UsuarioModule } from '@usuario/usuario.module';
 import { CoreModule } from '@core/core.module';
 import { CookieService } from 'ngx-cookie-service';
 import { TrmComponent } from './feature/trm/component/trm/trm.component';
@@ -28,6 +29,7 @@ import { DatePipe } from '@angular/common';
     ProductoModule,
     LibroModule,
     VentaModule,
+    UsuarioModule,
     CoreModule
   ],
   providers: [TrmService, CookieService, DatePipe],

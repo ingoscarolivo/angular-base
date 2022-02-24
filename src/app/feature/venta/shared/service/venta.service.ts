@@ -14,15 +14,12 @@ export class VentaService {
   }
 
   public guardar(venta: Venta) {
-    this.http.doPost<Venta, boolean>(`${environment.endpoint}/ventas`, venta,
-                                                this.http.optsName('crear/actualizar ventas')).subscribe(data =>{
-                                                  console.log("data ok"+data)
-                                                }); ;
-    return "ok";
+    return this.http.doPost<Venta, boolean>(`${environment.endpoint}/ventas`, venta,
+                                                this.http.optsName('crear/actualizar ventas'));
   }
-
+/*
   public eliminar(venta: Venta) {
     return this.http.doDelete<boolean>(`${environment.endpoint}/ventas/${venta.titulo}`,
                                                  this.http.optsName('eliminar venta'));
-  }
+  }*/
 }

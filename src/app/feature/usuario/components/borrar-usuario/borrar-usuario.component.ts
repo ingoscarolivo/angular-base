@@ -1,41 +1,41 @@
 import { Component, OnInit } from '@angular/core';
-import { LibroService } from '../../shared/service/libro.service';
+import { UsuarioService } from '../../shared/service/usuario.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-borrar-libro',
-  templateUrl: './borrar-libro.component.html',
-  styleUrls: ['./borrar-libro.component.css']
+  selector: 'app-borrar-usuario',
+  templateUrl: './borrar-usuario.component.html',
+  styleUrls: ['./borrar-usuario.component.css']
 })
-export class BorrarLibroComponent implements OnInit {
+export class BorrarUsuarioComponent implements OnInit {
 
   notificacion = Swal.mixin({
     toast: true,
     position: 'center'
   });
 
-  libroForm: FormGroup;
+  usuarioForm: FormGroup;
 
-  constructor(protected libroServices: LibroService) { }
+  constructor(protected usuarioServices: UsuarioService) { }
 
   ngOnInit() {
-    this.construirFormularioLibro();
+    this.construirFormularioUsuario();
   }
 
   borrar() {
-    console.log(this.libroForm);
-    this.libroServices.eliminar(this.libroForm.value).subscribe(
+    console.log(this.usuarioForm);
+    this.usuarioServices.eliminar(this.usuarioForm.value).subscribe(
       data => {if (data){
         this.success();
-        this.libroForm.reset();
+        this.usuarioForm.reset();
       }},
       error => this.mostrarError(error.error.mensaje)
     );
   }
 
-  private construirFormularioLibro() {
-    this.libroForm = new FormGroup({
+  private construirFormularioUsuario() {
+    this.usuarioForm = new FormGroup({
       id: new FormControl('', [Validators.required])
                                                             });
   }
@@ -43,7 +43,7 @@ export class BorrarLibroComponent implements OnInit {
   success(){
     this.notificacion.fire({
       title: 'Éxito',
-      text: 'Se ha eliminado el libro',
+      text: 'Se ha eliminado el usuario',
       icon: 'success'
     });
   }

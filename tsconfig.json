@@ -39,6 +39,9 @@
       "@venta/*": [
         "src/app/feature/venta/*"
       ],
+      "@usuario/*": [
+        "src/app/feature/usuario/*"
+      ],
       "@shared/*": [
         "src/app/shared/*"
       ]

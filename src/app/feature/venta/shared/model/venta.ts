@@ -1,23 +1,13 @@
 export class Venta {
 
-    //id: BigInteger;
-    titulo: string;
-    unidades: string;
-    precio: string;
+    idLibro: number;
+    idUsuario: number;
+    unidadVenta: number;
 
-    constructor(titulo: string, unidades: string, precio: string) {
-        //this.id = id;
-        this.titulo = titulo;
-        this.unidades = unidades;
-        this.precio = precio;
+
+    constructor(idLibro: number, idUsuario: number, unidadVenta: number) {
+        this.idLibro = idLibro;
+        this.idUsuario = idUsuario;
+        this.unidadVenta = unidadVenta;
     }
-
-/*
-id: string;
-titulo: string;
-
-constructor(id: string, titulo: string) {
-    this.id = id;
-    this.titulo = titulo;
-}*/
 }
