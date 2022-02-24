@@ -5,6 +5,9 @@ import {
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { BorrarLibroComponent } from './borrar-libro.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { LibroService } from '../../shared/service/libro.service';
+import { HttpService } from 'src/app/core/services/http.service';
 
 describe('BorrarProductoComponent', () => {
   let component: BorrarLibroComponent;
@@ -16,8 +19,11 @@ describe('BorrarProductoComponent', () => {
       imports: [
         CommonModule,
         HttpClientModule,
-        RouterTestingModule
+        RouterTestingModule,
+        ReactiveFormsModule,
+        FormsModule
       ],
+      providers: [LibroService, HttpService],
     })
     .compileComponents();
   }));

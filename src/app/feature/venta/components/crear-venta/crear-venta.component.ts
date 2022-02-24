@@ -23,7 +23,7 @@ export class CrearVentaComponent implements OnInit {
   }
 
   crear() {
-    console.log("ingreso al guardar");
+    console.log("ingreso al guardar una venta");
     this.ventaServices.guardar(this.ventaForm.value).subscribe(
       data => {if (data){
         this.success();

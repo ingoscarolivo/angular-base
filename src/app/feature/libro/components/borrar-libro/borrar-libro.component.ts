@@ -24,7 +24,7 @@ export class BorrarLibroComponent implements OnInit {
   }
 
   borrar() {
-    console.log(this.libroForm);
+    console.log("data libro"+this.libroForm);
     this.libroServices.eliminar(this.libroForm.value).subscribe(
       data => {if (data){
         this.success();
