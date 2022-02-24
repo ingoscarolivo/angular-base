@@ -29,7 +29,7 @@ describe('VentaService', () => {
 
   it('deberia listar Ventas', () => {
     const dummyVentas = [
-      new Venta('Libro 1', '30', '50000'), new Venta('Libro 2','20','10000')
+      new Venta(1, 1, 50000), new Venta(2, 20, 10000)
     ];
     service.consultar().subscribe(ventas => {
       expect(ventas.length).toBe(2);
@@ -41,7 +41,7 @@ describe('VentaService', () => {
   });
 
   it('deberia crear un venta', () => {
-    const dummyVenta = new Venta('Libro 1', '30', '50000');
+    const dummyVenta = new Venta(1, 30, 50000);
     service.guardar(dummyVenta).subscribe((respuesta) => {
       expect(respuesta).toEqual(true);
     });
@@ -50,13 +50,4 @@ describe('VentaService', () => {
     req.event(new HttpResponse<boolean>({body: true}));
   });
 
-  it('deberia eliminar un venta', () => {
-    const dummyVenta = new Venta('Libro 1', '30', '50000');
-    service.eliminar(dummyVenta).subscribe((respuesta) => {
-      expect(respuesta).toEqual(true);
-    });
-    const req = httpMock.expectOne(`${apiEndpointVentas}/1`);
-    expect(req.request.method).toBe('DELETE');
-    req.event(new HttpResponse<boolean>({body: true}));
-  });
 });
