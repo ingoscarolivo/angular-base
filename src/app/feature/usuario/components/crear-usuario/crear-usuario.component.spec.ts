@@ -47,7 +47,7 @@ describe('CrearUsuarioComponent', () => {
     expect(component.usuarioForm.valid).toBeFalsy();
   });
 
-  it('Registrando libro', () => {
+  it('Registrando usuario', () => {
     expect(component.usuarioForm.valid).toBeFalsy();
     component.usuarioForm.controls.nombre.setValue('testing');
     component.usuarioForm.controls.email.setValue('test@gmail.com');

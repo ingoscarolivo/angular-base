@@ -24,7 +24,7 @@ export class BorrarUsuarioComponent implements OnInit {
   }
 
   borrar() {
-    console.log(this.usuarioForm);
+    console.log(" user data "+this.usuarioForm);
     this.usuarioServices.eliminar(this.usuarioForm.value).subscribe(
       data => {if (data){
         this.success();

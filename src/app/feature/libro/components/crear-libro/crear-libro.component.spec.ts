@@ -49,7 +49,6 @@ describe('CrearLibroComponent', () => {
 
   it('Registrando libro', () => {
     expect(component.libroForm.valid).toBeFalsy();
-    component.libroForm.controls.id.setValue(1);
     component.libroForm.controls.titulo.setValue('libro test');
     component.libroForm.controls.unidades.setValue(20);
     component.libroForm.controls.precio.setValue('20000');
