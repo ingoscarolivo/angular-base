@@ -19,7 +19,6 @@ export class UsuarioService {
   }
 
   public eliminar(usuario: Usuario) {
-    console.log(usuario);
     return this.http.doDelete<boolean>(`${environment.endpoint}/usuarios/${usuario.id}`,
                                                  this.http.optsName('eliminar usuario'));
   }

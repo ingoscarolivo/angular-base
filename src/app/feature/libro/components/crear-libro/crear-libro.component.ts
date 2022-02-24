@@ -25,7 +25,6 @@ export class CrearLibroComponent implements OnInit {
   }
 
   crear() {
-    console.log("ingreso al guardar un libro");
     this.libroServices.guardar(this.libroForm.value).subscribe(
       data => {if (data){
         this.success();
