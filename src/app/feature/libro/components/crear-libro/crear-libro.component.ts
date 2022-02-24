@@ -8,8 +8,7 @@ const LONGITUD_MAXIMA_PERMITIDA_TEXTO = 20;
 
 @Component({
   selector: 'app-crear-libro',
-  templateUrl: './crear-libro.component.html',
-  styleUrls: ['./crear-libro.component.css']
+  templateUrl: './crear-libro.component.html'
 })
 export class CrearLibroComponent implements OnInit {
 

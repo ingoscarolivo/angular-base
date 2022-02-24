@@ -6,8 +6,7 @@ import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-crear-venta',
-  templateUrl: './crear-venta.component.html',
-  styleUrls: ['./crear-venta.component.css']
+  templateUrl: './crear-venta.component.html'
 })
 export class CrearVentaComponent implements OnInit {
   ventaForm: FormGroup;

@@ -6,8 +6,7 @@ import { Venta } from '@venta/shared/model/venta';
 
 @Component({
   selector: 'app-listar-venta',
-  templateUrl: './listar-venta.component.html',
-  styleUrls: ['./listar-venta.component.css']
+  templateUrl: './listar-venta.component.html'
 })
 export class ListarVentaComponent implements OnInit {
   public listaVentas: Observable<Venta[]>;

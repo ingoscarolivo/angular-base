@@ -5,8 +5,7 @@ import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-borrar-libro',
-  templateUrl: './borrar-libro.component.html',
-  styleUrls: ['./borrar-libro.component.css']
+  templateUrl: './borrar-libro.component.html'
 })
 export class BorrarLibroComponent implements OnInit {
 

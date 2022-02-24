@@ -5,8 +5,7 @@ import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-crear-usuario',
-  templateUrl: './crear-usuario.component.html',
-  styleUrls: ['./crear-usuario.component.css']
+  templateUrl: './crear-usuario.component.html'
 })
 export class CrearUsuarioComponent implements OnInit {
 
