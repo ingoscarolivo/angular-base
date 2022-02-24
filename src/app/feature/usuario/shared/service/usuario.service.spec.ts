@@ -1,61 +1,61 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
-import { LibroService } from './libro.service';
+import { UsuarioService } from './usuario.service';
 import { environment } from 'src/environments/environment';
 import { HttpService } from 'src/app/core/services/http.service';
-import { Libro } from '../model/libro';
+import { Usuario } from '../model/usuario';
 import { HttpResponse } from '@angular/common/http';
 
-describe('LibroService', () => {
+describe('UsuarioService', () => {
   let httpMock: HttpTestingController;
-  let service: LibroService;
-  const apiEndpointLibroConsulta = `${environment.endpoint}/libros`;
-  const apiEndpointLibros = `${environment.endpoint}/libros`;
+  let service: UsuarioService;
+  const apiEndpointUsuarioConsulta = `${environment.endpoint}/usuarios`;
+  const apiEndpointUsuarios = `${environment.endpoint}/usuarios`;
 
   beforeEach(() => {
     const injector = TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [LibroService, HttpService]
+      providers: [UsuarioService, HttpService]
     });
     httpMock = injector.inject(HttpTestingController);
-    service = TestBed.inject(LibroService);
+    service = TestBed.inject(UsuarioService);
   });
 
   it('should be created', () => {
-    const libroService: LibroService = TestBed.inject(LibroService);
-    expect(libroService).toBeTruthy();
+    const usuarioService: UsuarioService = TestBed.inject(UsuarioService);
+    expect(usuarioService).toBeTruthy();
   });
 
-  it('deberia listar libros', () => {
-    const dummyLibros = [
-      new Libro('Libro 1', '30', '50000'), new Libro('Libro 2','20','10000')
+  it('deberia listar usuarios', () => {
+    const dummyUsuarios = [
+      new Usuario(1, '30', '50000'), new Usuario(2,'20','10000')
     ];
-    service.consultar().subscribe(libros => {
-      expect(libros.length).toBe(2);
-      expect(libros).toEqual(dummyLibros);
+    service.consultar().subscribe(usuarios => {
+      expect(usuarios.length).toBe(2);
+      expect(usuarios).toEqual(dummyUsuarios);
     });
-    const req = httpMock.expectOne(apiEndpointLibroConsulta);
+    const req = httpMock.expectOne(apiEndpointUsuarioConsulta);
     expect(req.request.method).toBe('GET');
-    req.flush(dummyLibros);
+    req.flush(dummyUsuarios);
   });
 
-  it('deberia crear un libro', () => {
-    const dummyLibro = new Libro('Libro 1', '30', '50000');
-    service.guardar(dummyLibro).subscribe((respuesta) => {
+  it('deberia crear un usuario', () => {
+    const dummyUsuarios = new Usuario(1, '30', '50000');
+    service.guardar(dummyUsuarios).subscribe((respuesta) => {
       expect(respuesta).toEqual(true);
     });
-    const req = httpMock.expectOne(apiEndpointLibros);
+    const req = httpMock.expectOne(apiEndpointUsuarios);
     expect(req.request.method).toBe('POST');
     req.event(new HttpResponse<boolean>({body: true}));
   });
 
-  it('deberia eliminar un libro', () => {
-    const dummyLibro = new Libro('Libro 1', '30', '50000');
-    service.eliminar(dummyLibro).subscribe((respuesta) => {
+  it('deberia eliminar un usuario', () => {
+    const dummyUsuarios = new Usuario(1, '30', '50000');
+    service.eliminar(dummyUsuarios).subscribe((respuesta) => {
       expect(respuesta).toEqual(true);
     });
-    const req = httpMock.expectOne(`${apiEndpointLibros}/1`);
+    const req = httpMock.expectOne(`${apiEndpointUsuarios}/1`);
     expect(req.request.method).toBe('DELETE');
     req.event(new HttpResponse<boolean>({body: true}));
   });

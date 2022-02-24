@@ -1,22 +1,22 @@
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 
-import { CrearLibroComponent } from './crear-libro.component';
+import { CrearUsuarioComponent } from './crear-usuario.component';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
-import { LibroService } from '../../shared/service/libro.service';
+import { UsuarioService } from '../../shared/service/usuario.service';
 import { HttpService } from 'src/app/core/services/http.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
-describe('CrearLibroComponent', () => {
-  let component: CrearLibroComponent;
-  let fixture: ComponentFixture<CrearLibroComponent>;
-  let libroService: LibroService;
+describe('CrearUsuarioComponent', () => {
+  let component: CrearUsuarioComponent;
+  let fixture: ComponentFixture<CrearUsuarioComponent>;
+  let usuarioService: UsuarioService;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ CrearLibroComponent ],
+      declarations: [ CrearUsuarioComponent ],
       imports: [
         CommonModule,
         HttpClientModule,
@@ -24,16 +24,16 @@ describe('CrearLibroComponent', () => {
         ReactiveFormsModule,
         FormsModule
       ],
-      providers: [LibroService, HttpService],
+      providers: [UsuarioService, HttpService],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CrearLibroComponent);
+    fixture = TestBed.createComponent(CrearUsuarioComponent);
     component = fixture.componentInstance;
-    libroService = TestBed.inject(LibroService);
-    spyOn(libroService, 'guardar').and.returnValue(
+    usuarioService = TestBed.inject(UsuarioService);
+    spyOn(usuarioService, 'guardar').and.returnValue(
       of(true)
     );
     fixture.detectChanges();
@@ -44,16 +44,16 @@ describe('CrearLibroComponent', () => {
   });
 
   it('formulario es invalido cuando esta vacio', () => {
-    expect(component.libroForm.valid).toBeFalsy();
+    expect(component.usuarioForm.valid).toBeFalsy();
   });
 
   it('Registrando libro', () => {
-    expect(component.libroForm.valid).toBeFalsy();
-    component.libroForm.controls.id.setValue('001');
-    component.libroForm.controls.descripcion.setValue('libro test');
-    expect(component.libroForm.valid).toBeTruthy();
+    expect(component.usuarioForm.valid).toBeFalsy();
+    component.usuarioForm.controls.nombre.setValue('testing');
+    component.usuarioForm.controls.email.setValue('test@gmail.com');
+    expect(component.usuarioForm.valid).toBeTruthy();
 
-    component.cerar();
+    component.crear();
 
     // Aca validamos el resultado esperado al enviar la petición
     // TODO adicionar expect

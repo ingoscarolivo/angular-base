@@ -13,7 +13,7 @@ describe('ListarVentaComponent', () => {
   let component: ListarVentaComponent;
   let fixture: ComponentFixture<ListarVentaComponent>;
   let ventaService: VentaService;
-  const listaVentas: Venta[] = [new Venta('Libro 1', '30', '50000'), new Venta('Libro 2', '60', '10000')];
+  const listaVentas: Venta[] = [new Venta(1, 1, 20000), new Venta(2, 2, 10000)];
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
@@ -40,7 +40,7 @@ describe('ListarVentaComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-    component.listarVentas.subscribe(resultado => {
+    component.listaVentas.subscribe(resultado => {
       expect(2).toBe(resultado.length);
   });
 });

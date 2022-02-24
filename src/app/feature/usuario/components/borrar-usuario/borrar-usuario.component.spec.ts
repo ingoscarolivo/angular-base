@@ -4,15 +4,15 @@ import {
 } from '@angular/router/testing';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { BorrarLibroComponent } from './borrar-libro.component';
+import { BorrarUsuarioComponent } from './borrar-usuario.component';
 
-describe('BorrarProductoComponent', () => {
-  let component: BorrarLibroComponent;
-  let fixture: ComponentFixture<BorrarLibroComponent>;
+describe('BorrarUsuarioComponent', () => {
+  let component: BorrarUsuarioComponent;
+  let fixture: ComponentFixture<BorrarUsuarioComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ BorrarLibroComponent ],
+      declarations: [ BorrarUsuarioComponent ],
       imports: [
         CommonModule,
         HttpClientModule,
@@ -23,7 +23,7 @@ describe('BorrarProductoComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BorrarLibroComponent);
+    fixture = TestBed.createComponent(BorrarUsuarioComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
