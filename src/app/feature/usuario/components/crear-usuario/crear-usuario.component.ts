@@ -23,7 +23,6 @@ export class CrearUsuarioComponent implements OnInit {
   }
 
   crear() {
-    console.log("ingreso al guardar un usuario");
     this.usuarioServices.guardar(this.usuarioForm.value).subscribe(
       data => {if (data){
         this.success();

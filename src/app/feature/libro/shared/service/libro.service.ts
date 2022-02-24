@@ -19,7 +19,6 @@ export class LibroService {
   }
 
   public eliminar(libro: Libro) {
-    console.log(libro);
     return this.http.doDelete<boolean>(`${environment.endpoint}/libros/${libro.id}`,
                                                  this.http.optsName('eliminar libro'));
   }
