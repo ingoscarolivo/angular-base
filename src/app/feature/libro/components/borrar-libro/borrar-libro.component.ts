@@ -5,8 +5,7 @@ import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-borrar-libro',
-  templateUrl: './borrar-libro.component.html',
-  styleUrls: ['./borrar-libro.component.css']
+  templateUrl: './borrar-libro.component.html'
 })
 export class BorrarLibroComponent implements OnInit {
 
@@ -24,7 +23,6 @@ export class BorrarLibroComponent implements OnInit {
   }
 
   borrar() {
-    console.log("data libro"+this.libroForm);
     this.libroServices.eliminar(this.libroForm.value).subscribe(
       data => {if (data){
         this.success();

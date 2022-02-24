@@ -6,8 +6,7 @@ import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-crear-venta',
-  templateUrl: './crear-venta.component.html',
-  styleUrls: ['./crear-venta.component.css']
+  templateUrl: './crear-venta.component.html'
 })
 export class CrearVentaComponent implements OnInit {
   ventaForm: FormGroup;
@@ -23,7 +22,6 @@ export class CrearVentaComponent implements OnInit {
   }
 
   crear() {
-    console.log("ingreso al guardar una venta");
     this.ventaServices.guardar(this.ventaForm.value).subscribe(
       data => {if (data){
         this.success();

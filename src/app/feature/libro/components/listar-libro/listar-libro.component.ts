@@ -6,8 +6,7 @@ import { Libro } from '@libro/shared/model/libro';
 
 @Component({
   selector: 'app-listar-libro',
-  templateUrl: './listar-libro.component.html',
-  styleUrls: ['./listar-libro.component.css']
+  templateUrl: './listar-libro.component.html'
 })
 export class ListarLibroComponent implements OnInit {
   public listarLibros: Observable<Libro[]>;

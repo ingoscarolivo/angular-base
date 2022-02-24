@@ -5,8 +5,7 @@ import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-crear-usuario',
-  templateUrl: './crear-usuario.component.html',
-  styleUrls: ['./crear-usuario.component.css']
+  templateUrl: './crear-usuario.component.html'
 })
 export class CrearUsuarioComponent implements OnInit {
 
@@ -23,7 +22,6 @@ export class CrearUsuarioComponent implements OnInit {
   }
 
   crear() {
-    console.log("ingreso al guardar un usuario");
     this.usuarioServices.guardar(this.usuarioForm.value).subscribe(
       data => {if (data){
         this.success();

@@ -6,8 +6,7 @@ import { Usuario } from '@usuario/shared/model/usuario';
 
 @Component({
   selector: 'app-listar-usuario',
-  templateUrl: './listar-usuario.component.html',
-  styleUrls: ['./listar-usuario.component.css']
+  templateUrl: './listar-usuario.component.html'
 })
 export class ListarUsuarioComponent implements OnInit {
   public listarUsuarios: Observable<Usuario[]>;
