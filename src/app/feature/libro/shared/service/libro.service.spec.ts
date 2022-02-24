@@ -29,7 +29,7 @@ describe('LibroService', () => {
 
   it('deberia listar libros', () => {
     const dummyLibros = [
-      new Libro('Libro 1', '30', '50000'), new Libro('Libro 2','20','10000')
+      new Libro(1,'Libro 1', 30, '50000'), new Libro(2,'Libro 2',20,'10000')
     ];
     service.consultar().subscribe(libros => {
       expect(libros.length).toBe(2);
@@ -41,7 +41,7 @@ describe('LibroService', () => {
   });
 
   it('deberia crear un libro', () => {
-    const dummyLibro = new Libro('Libro 1', '30', '50000');
+    const dummyLibro = new Libro(1, 'Libro 1', 30, '50000');
     service.guardar(dummyLibro).subscribe((respuesta) => {
       expect(respuesta).toEqual(true);
     });
@@ -51,7 +51,7 @@ describe('LibroService', () => {
   });
 
   it('deberia eliminar un libro', () => {
-    const dummyLibro = new Libro('Libro 1', '30', '50000');
+    const dummyLibro = new Libro(1, 'Libro 1', 30, '50000');
     service.eliminar(dummyLibro).subscribe((respuesta) => {
       expect(respuesta).toEqual(true);
     });
